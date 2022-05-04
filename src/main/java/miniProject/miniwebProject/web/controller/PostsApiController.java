@@ -36,17 +36,26 @@ public class PostsApiController {
      */
 
     @PutMapping("/api/v1/posts/{id}") // 수정은 put또는 Patch를 씀(게시물의 경우, 데이터의 일부만 수정하기 어렵기 떄문에 아예 새로운것으로 갈아끼우도록 put을 이용함)
-    public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto){
+    public Long update(@PathVariable("id") Long id, @RequestBody PostsUpdateRequestDto requestDto){
         return postsService.update(id,requestDto);
     }
 
     /**
      * 조회 컨트롤러
      */
-    @GetMapping("api/v1/posts/{id}")
+    @GetMapping("/api/v1/posts/{id}")
     public PostsResponseDto findById(@PathVariable Long id){
         return postsService.findById(id);
     }
 
+    /**
+     * 삭제 컨트롤러
+     */
+
+    @DeleteMapping("/api/v1/posts/{id}")
+    public Long delete(@PathVariable("id") Long id){
+        postsService.delete(id);
+        return id;
+    }
 
 }

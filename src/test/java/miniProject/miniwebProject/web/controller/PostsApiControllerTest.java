@@ -31,6 +31,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @WebMvcTest 이 어노테이션을 사용하면 JPA 기능이 동작하지 않기 때문이다.
  * @Controller @ControllerAdvice와 같이 외부연동과 관련된 부분만 활성화 된다.
  * 따라서 JPA까지 테스트하려면 @SpringBootTest의 TestRestTemplate을 사용해야 된다.
+ *
  */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
