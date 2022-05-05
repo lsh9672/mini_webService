@@ -3,6 +3,8 @@
 
 **(기존의 내용을 따라 하되, 몇몇 기술이나, 기능은 바꿔서 내가 원하는대로 해볼예정)**
 
+# 개발일지
+
 ### (1일차)
 
 - 프로젝트 생성 및 깃 연동
@@ -17,6 +19,8 @@
 
 - 테스트 코드를 작성까지는 끝냈으나, h2디비연동에 설정하지 않은 테이블들이 생겨나서 확인중임
 
+- `commit` : [3efcfe7](https://github.com/lsh9672/mini_webService/commit/3efcfe7c67fd2f3618d0fa4a196e64c9b4da62ce)
+
 ### (3일차)
 
 - 3장까지 끝냄
@@ -29,6 +33,8 @@
 
 - 모든 엔티티에 공통적으로 들어갈, 생성시간, 변경시간을 auditing 기능을 이용해서 처리함.
 
+- `commit` : [a1eec0c](https://github.com/lsh9672/mini_webService/commit/a1eec0c595916eb8a4700cc6c3d395921cf74e0d)
+
 ### (4일차)
 
 - 4장까지 진행
@@ -40,3 +46,5 @@
 - 머스테치에서는 레이아웃을 사용해서 중복부분을 한번에 관리하지만, 타임리프로 만들때는 fragment를 사용함
 
 - 현재 수정, 삭제 api는 테스트하지 않았기 때문에 다음에 5장을 진행하면서 이 테스트를 만들예정
+
+- `commit` : [029f3ff](https://github.com/lsh9672/mini_webService/commit/029f3fff440dbae2ae2967299a4ba5710b8a7a03)
