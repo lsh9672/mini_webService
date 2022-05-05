@@ -83,5 +83,82 @@ class PostsRepositoryTest {
         Assertions.assertThat(posts.getModifiedDate()).isAfter(now);
     }
 
+    /**
+     * @Query를 이용해 직접 작성한 data jpa의 메서드를 테스트
+     * 테스트할 메서드 : findAllDesc - 게시판에 데이터를 내림차순 형태로 보여주기 위해서 만든 메서드
+     */
+    @DisplayName("내림차순 전체 조회 테스트")
+    @Test
+    public void descFindAllTest() throws Exception{
+        //give
+        //조회전에 값 두개 정도 넣기
+        //1번값
+        String title1 = "title1";
+        String content1 = "content1";
+        String author1 = "author1";
+
+        //2번 값
+        String title2 = "title2";
+        String content2 = "content2";
+        String author2 = "author2";
+
+        postsRepository.save(Posts.builder()
+                .title(title1)
+                .content(content1)
+                .author(author1)
+                .build());
+
+        postsRepository.save(Posts.builder()
+                .title(title2)
+                .content(content2)
+                .author(author2)
+                .build());
+
+        //when
+        //내림차순 조회
+        List<Posts> allDesc = postsRepository.findAllDesc();
+
+        Posts firstPost = allDesc.get(0);
+        Posts secondPost = allDesc.get(1);
+
+        //then
+        Assertions.assertThat(allDesc.size()).isEqualTo(2);
+
+        Assertions.assertThat(firstPost.getTitle()).isEqualTo(title2);
+        Assertions.assertThat(firstPost.getContent()).isEqualTo(content2);
+        Assertions.assertThat(firstPost.getAuthor()).isEqualTo(author2);
+
+        Assertions.assertThat(secondPost.getTitle()).isEqualTo(title1);
+        Assertions.assertThat(secondPost.getContent()).isEqualTo(content1);
+        Assertions.assertThat(secondPost.getAuthor()).isEqualTo(author1);
+
+    }
+
+    /**
+     * 레파지토리 삭제 테스트
+     */
+    @DisplayName("삭제 테스트")
+    @Test
+    public void deleteTest() throws Exception{
+        //give
+        String title= "title";
+        String content = "content";
+        String author = "author";
+
+        Posts saveId = postsRepository.save(Posts.builder()
+                .title(title)
+                .content(content)
+                .author(author)
+                .build());
+        //when
+        postsRepository.delete(saveId);
+
+        List<Posts> all = postsRepository.findAll();
+
+        //then
+
+        Assertions.assertThat(all.size()).isEqualTo(0);
+    }
+
 
 }

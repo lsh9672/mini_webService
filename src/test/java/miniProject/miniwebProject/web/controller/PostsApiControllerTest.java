@@ -1,5 +1,6 @@
 package miniProject.miniwebProject.web.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import miniProject.miniwebProject.domain.post.Posts;
 import miniProject.miniwebProject.domain.post.PostsRepository;
 import miniProject.miniwebProject.web.dto.PostsResponseDto;
@@ -16,10 +17,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
@@ -142,6 +140,39 @@ class PostsApiControllerTest {
         Assertions.assertThat(forEntity.getBody().getTitle()).isEqualTo(title);
         Assertions.assertThat(forEntity.getBody().getContent()).isEqualTo(content);
         Assertions.assertThat(forEntity.getBody().getAuthor()).isEqualTo(author);
+
+    }
+
+    /**
+     * 게시글 삭제 컨트롤러 테스트
+     * 삭제한 것 조회는 서비스 테스트에서 함
+     */
+    @DisplayName("게시글 삭제 테스트")
+    @Test
+    public void postDeleteTest() throws Exception{
+        //give
+        String title= "title";
+        String content = "content";
+        String author = "author";
+
+        Posts saveId = postsRepository.save(Posts.builder()
+                .title(title)
+                .content(content)
+                .author(author)
+                .build());
+
+        Long id = saveId.getId();
+
+        //when
+        String url = "http://localhost:" + port + "/api/v1/posts/" + id;
+        //반환값이 없다면 delete를 사용, 컨트롤러의 반환값을 가지기 위해서는 아래와 같이 exchange를 사용한다.
+        //exchange를 사용하면 HTTPENtity를 사용하기 때문에 해더를 넣어주어야 한다.
+        HttpHeaders header = new HttpHeaders();
+        HttpEntity<Object> objectHttpEntity = new HttpEntity<>(header);
+        ResponseEntity<Long> exchange = restTemplate.exchange(url, HttpMethod.DELETE, objectHttpEntity, Long.class);
+
+        //then
+        Assertions.assertThat(id).isEqualTo(exchange.getBody());
 
     }
 
