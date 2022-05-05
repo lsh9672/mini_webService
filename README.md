@@ -51,8 +51,11 @@
 
 ### (5일차)
 
-- 4장테스트와 5장 진행
+- 4장테스트와 5장 도입부 진행(oauth)
 
 - 책에서 안한, 레파지토리의 전체조회, 수정, 삭제, 컨트롤러의 삭제, 서비스계층 조회,전체조회, 수정, 삭제에 대한 테스트 코드를 작성함.
 
+- google oauth연동을 위해 인증정보를 등록하고 yaml에 등록함.
+
 - 4장 추가 테스트 코드 `commit` : [b871bee](https://github.com/lsh9672/mini_webService/commit/b871beee0b7a6eda08e0499b37b91739121bac5d)
+

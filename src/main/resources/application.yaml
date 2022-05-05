@@ -13,6 +13,9 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.MySQL57Dialect
+  config:
+    activate:
+      on-profile: oauth
 #          storage_engine: innodb
 
 
@@ -20,4 +23,7 @@ logging:
   level:
     org.hibernate.SQL: debug
     org.hibernate.type: trace
+
+
+
 
