@@ -59,3 +59,13 @@
 
 - 4장 추가 테스트 코드 `commit` : [b871bee](https://github.com/lsh9672/mini_webService/commit/b871beee0b7a6eda08e0499b37b91739121bac5d)
 
+### (6일차)
+
+- 5장 진행
+
+- OAuth기능 구현(구글 로그인)
+
+- 인증 버튼을 화면에 보여줘야 하는데, 머스테치에서 타임리프로 변경중에 있음
+
+- OAuth기능 구현 `commit` : [3768fd4](https://github.com/lsh9672/mini_webService/commit/3768fd4031473ca99c15b94c9818b5703a436f52)
+
