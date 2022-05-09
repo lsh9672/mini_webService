@@ -49,7 +49,8 @@ public class PostsApiController {
     }
 
     /**
-     * 삭제 컨트롤러
+     * 삭제 컨트
+     * 롤러
      */
 
     @DeleteMapping("/api/v1/posts/{id}")

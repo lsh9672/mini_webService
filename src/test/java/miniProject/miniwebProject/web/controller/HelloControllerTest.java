@@ -1,10 +1,14 @@
 package miniProject.miniwebProject.web.controller;
 
+import miniProject.miniwebProject.config.auth.SecurityConfig;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
@@ -28,7 +32,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 //Junit5 부터는 @RunWith 대신에 @ExtendWith를 사용한다.
 //@ExtendWith(SpringExtension.class) // 아래의 어노테이션을 사용하면 이 @ExtendWith는 들어있기 떄문에 안써줘도 된다
-@WebMvcTest(controllers = HelloController.class)  //이것은 서블릿 컨테이너를 모킹하기 위해서 필요하
+@WebMvcTest(controllers = HelloController.class, excludeFilters = {
+        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
+})  //이것은 서블릿 컨테이너를 모킹하기 위해서 필요하
 class HelloControllerTest {
 
     //api 요청테스트를 위해서 서블릿 디스패처 객체를 흉내내는 목mvc를 자동주입 받는다.
@@ -36,6 +42,7 @@ class HelloControllerTest {
 
     @DisplayName("hello 컨트롤러 테스트")
     @Test
+    @WithMockUser(roles="USER")
     public void helloTest() throws Exception{
         //give
         //when
@@ -48,6 +55,7 @@ class HelloControllerTest {
 
     @DisplayName("hello dto 컨트롤러 테스트")
     @Test
+    @WithMockUser(roles="USER")
     public void helloDtoTest() throws Exception{
         //give
         String name = "hello";

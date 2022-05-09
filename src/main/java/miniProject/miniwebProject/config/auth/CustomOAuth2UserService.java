@@ -2,6 +2,7 @@ package miniProject.miniwebProject.config.auth;
 
 import lombok.RequiredArgsConstructor;
 import miniProject.miniwebProject.config.auth.dto.OAuthAttributes;
+import miniProject.miniwebProject.config.auth.dto.SessionUser;
 import miniProject.miniwebProject.domain.user.User;
 import miniProject.miniwebProject.domain.user.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -38,7 +39,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         User user = saveOrUpdate(attributes);
 
-        httpSession.setAttribute("user",new SeesionUser(user)); // 세션에 사용자 정보를 저장하기 위한 Dto클래스
+        httpSession.setAttribute("user",new SessionUser(user)); // 세션에 사용자 정보를 저장하기 위한 Dto클래스
 
         return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),
                 attributes.getAttributes(),

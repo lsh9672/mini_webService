@@ -13,14 +13,17 @@
         <div class="row">
             <div class="col-md-6">
                 <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
-                {{#userName}}
-                Logged in as: <span id="user">{{userName}}</span>
-                <a href="/logout" class="btn btn-info active" role="button">Logout</a>
-                {{/userName}}
-                {{^userName}}
-                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
-                <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
-                {{/userName}}
+
+                <!--로그인이 되어있을떄 로그아웃 버튼-->
+                <th:block th:if="${not #strings.isEmpty(userName)}" th:object = "${userName}">
+                    Logged in as: <span id="user" th:text = "*{name}">test</span>
+                    <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+                </th:block>
+                <!--로그인이 안되어있을때 로그인버튼-->
+                <th:block th:if="${#strings.isEmpty(userName)}">
+                    <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
+                    <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
+                </th:block>
             </div>
         </div>
     <br>
