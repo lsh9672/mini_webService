@@ -82,3 +82,5 @@
 - 스프링 시큐리티를 테스트에 적용해서 기존에 작성한 테스트가 깨지는 것을 수정함.
 
 - OAuth관련 설정을 properties파일에서 좀 더 가독성 좋은 yml파일로 수정함.
+
+- 7일차 코드 `commit` : [aa54a21](https://github.com/lsh9672/mini_webService/commit/aa54a218d5d8127fc949fbbf9a948b8e988ee48c)
