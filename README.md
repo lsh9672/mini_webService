@@ -84,3 +84,24 @@
 - OAuth관련 설정을 properties파일에서 좀 더 가독성 좋은 yml파일로 수정함.
 
 - 7일차 코드 `commit` : [aa54a21](https://github.com/lsh9672/mini_webService/commit/aa54a218d5d8127fc949fbbf9a948b8e988ee48c)
+
+### (8일차)
+
+- 6장 끝냄
+
+- aws에 EC2(AMI 2)를 만들고 고정ip(EIP) 설정까지 함
+
+- 로컬에서 ssh로 접속하기 위한 설정을 하고, 현재 사용중인 java 11버전을 설치함
+
+- 책에서는 자바8을 설치하는데, 이는 이미 저장소에 있지만 11은 없기 때문에 따로 설치해야 됨
+
+- 책에서는 os를 아마존에서 지원하는 AMI 1을 썼지만, 현재(2022.05.10)는 AMI 1이 없어지고 AMI 2 만 남아있음
+
+- AMI 2로 진행할 경우, 책에서 진행하는 호스트이름 변경시에 `/etc/sysconfig/network 파일만 변경하면 적용이 안되어서 추가적인 방법으로 설정했음
+
+- 자바 11설치 참고 :[java11 install](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html)
+
+- 호스트 이름 변경 참고 : [change hostname](https://bbeomgeun.tistory.com/157)
+
+- AMI 1에 대한 지원 종료관련 : [AMI 2](https://aws.amazon.com/ko/about-aws/whats-new/2019/03/announcing_the_amazon_linux_2_preupgrade_assistant/)
+
