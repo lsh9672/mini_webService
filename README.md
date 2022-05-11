@@ -105,3 +105,17 @@
 
 - AMI 1에 대한 지원 종료관련 : [AMI 2](https://aws.amazon.com/ko/about-aws/whats-new/2019/03/announcing_the_amazon_linux_2_preupgrade_assistant/)
 
+### (9일차)
+
+- 7장 끝
+
+- AWS에 관계형디비인 RDS를 만듦(mariaDB)
+
+- 보안규칙을 설정하고, 추후에 이모지 저장을 위해 utf8이 아닌 utf8mb4로 지정해줌
+
+- 이전에 생성한 EC2와 보안규칙을 연결해 서로 연결이 되도록 하였고 EC2에서 접근확인함.
+
+- 인텔리제이에서도 DB에 접근설정을 하는데, 책에서 쓰는 DB Navigator의 경우, 툴자체의 문제인지 RDS에 접속이 안됨(구글링 해봐도 원인을 모름)
+
+- 인텔리제이 유료버전이 제공하는 database tool window를 이용해서 연결하고, 테이블 생성 테스트까지 진행함.
+
