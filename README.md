@@ -119,3 +119,5 @@
 
 - 인텔리제이 유료버전이 제공하는 database tool window를 이용해서 연결하고, 테이블 생성 테스트까지 진행함.
 
+- 참고한 블로그 : [db tool](https://wadekang.tistory.com/35) 
+
