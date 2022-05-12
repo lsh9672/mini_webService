@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/lsh/h2_db_collection/miniProj/miniProj;MODE=MYSQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL57Dialect
+#  config:
+#    activate:
+#      on-profile: oauth
+  profiles:
+    include: oauth
+#          storage_engine: innodb
+  session:
+    jdbc:
+      initialize-schema: always # 책에는 없는데 이 설정을 해줘야 스키마가 적용되어 테이블이 생성된다.
+    store-type: jdbc
+
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+
+
+
+
+
