@@ -133,6 +133,6 @@
 
 - 실행환경이 aws로 바뀌었기 때문에 oauth에 설정해둔 허용 url들을 이에 맞춰 변경함.
 
-- 스프링 부트 2.0이상부터는 빌드시에 ~plain.jar라는 파일이 하나더 생기는데, 이는 의존성을 가져온것이 아닌, 프로젝트내에 존재하는 의존성만 가지고 있는 파일이므로,이것을 실행하면 문제가 됨. 따라서 `build.gradle`에 설정을 추가해서 이 파일이 생기지 안도록 함
+- 스프링 부트 2.5이상부터는 빌드시에 ~plain.jar라는 파일이 하나더 생기는데, 이는 의존성을 가져온것이 아닌, 프로젝트내에 존재하는 자원들로만 jar를 생성하기 때문에, 이것을 실행하면 문제가 됨. 따라서 `build.gradle`에 설정을 추가해서 이 파일이 생기지 안도록 함
 
-- 문제해결 참고 : [jar 관련](https://velog.io/@timointhebush/Java-Spring-JPA-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%B0%B0%ED%8F%AC-%EB%8F%84%EC%A0%84%EA%B8%B0-2-%EA%B7%BC%EB%8D%B0-%EC%9D%B4%EC%A0%9C-%EC%98%A4%EB%A5%98%EB%A5%BC-%EA%B3%81%EB%93%A4%EC%9D%B8)
+- 문제해결 참고 : [jar 관련](https://velog.io/@zerodin/EC2-%EC%84%9C%EB%B2%84%EC%97%90-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EB%B0%B0%ED%8F%AC%ED%95%B4-%EB%B3%B4%EC%9E%90#%EC%99%B8%EB%B6%80-security-%ED%8C%8C%EC%9D%BC-%EB%93%B1%EB%A1%9D%ED%95%98%EA%B8%B0)
