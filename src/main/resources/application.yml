@@ -16,8 +16,8 @@ spring:
 #  config:
 #    activate:
 #      on-profile: oauth
-#  profiles:
-#    include: oauth
+  profiles:
+    include: oauth
 #          storage_engine: innodb
   session:
     jdbc:
