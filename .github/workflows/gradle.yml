@@ -32,3 +32,22 @@ jobs:
       uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
       with:
         arguments: build
+    - name: Make Directory
+      run: mkdir -p deploy
+      
+    - name: Copy Jar
+      run: cp ./build/libs/*.jar ./deploy
+      
+    - name: Make zip file
+      run: zip -r ./springboot-mini-project-jar ./deploy
+      
+    - name: Deploy
+      uses: aws-actions/configure-aws-credentials@v1
+      with: 
+        aws-access-key-id: ${{ secret.AWS_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secret.AWS_SECRET_KEY }}
+        aws-region: ap-northeast-2
+      
+    - name: Upload to S3
+      run: aws s3 cp --region ap-northeast-2 --acl private ./springboot-mini-project-jar s3://springboot-github-action-build
+      
