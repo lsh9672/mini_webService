@@ -28,9 +28,6 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - name: Copy appspec.yml
-      run: cp appspec.yml ./deploy
-
 
     - name: Build with Gradle
       uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
@@ -38,6 +35,9 @@ jobs:
         arguments: build
     - name: Make Directory
       run: mkdir -p deploy
+
+    - name: Copy appspec.yml
+      run: cp appspec.yml ./deploy
       
     - name: Copy Jar
       run: cp ./build/libs/*.jar ./deploy
