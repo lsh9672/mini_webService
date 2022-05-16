@@ -39,7 +39,7 @@ jobs:
       run: cp ./build/libs/*.jar ./deploy
       
     - name: Make zip file
-      run: zip -r ./springboot-mini-project-jar ./deploy
+      run: zip -r ./springboot-mini-project-jar.zip ./deploy
       
     - name: Deploy
       uses: aws-actions/configure-aws-credentials@v1
@@ -49,5 +49,5 @@ jobs:
         aws-region: ap-northeast-2
       
     - name: Upload to S3
-      run: aws s3 cp --region ap-northeast-2 --acl private ./springboot-mini-project-jar s3://springboot-github-action-build
+      run: aws s3 cp --region ap-northeast-2 --acl private ./springboot-mini-project-jar.zip s3://springboot-github-action-build
       
