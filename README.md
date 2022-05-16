@@ -136,3 +136,17 @@
 - 스프링 부트 2.5이상부터는 빌드시에 ~plain.jar라는 파일이 하나더 생기는데, 이는 의존성을 가져온것이 아닌, 프로젝트내에 존재하는 자원들로만 jar를 생성하기 때문에, 이것을 실행하면 문제가 됨. 따라서 `build.gradle`에 설정을 추가해서 이 파일이 생기지 안도록 함
 
 - 문제해결 참고 : [jar 관련](https://velog.io/@zerodin/EC2-%EC%84%9C%EB%B2%84%EC%97%90-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EB%B0%B0%ED%8F%AC%ED%95%B4-%EB%B3%B4%EC%9E%90#%EC%99%B8%EB%B6%80-security-%ED%8C%8C%EC%9D%BC-%EB%93%B1%EB%A1%9D%ED%95%98%EA%B8%B0)
+
+### (11일차)
+
+- 9장 끝
+
+- AWS의 S3,code deploy를 이용해서 배포 구축
+
+- 빌드는 책에서 travis를 사용했지만, github action으로 구축함
+
+- travis는 일정 크래딧을 다쓰기전까지만 무료이고, 초기 구축시에 github action보다 좀 더 까다롭기도 하고, 무엇보다 깃허브와의 연동은 github action이 더 좋으면서 편리하게 제공하기 때문에 이를 선택함.
+
+- 구축후에 자동 빌드, 배포가 되는지 확인함.
+
+- 참고한 블로그 : [github action 적용](https://velog.io/@tigger/%EB%B0%B0%ED%8F%AC-%EC%9E%90%EB%8F%99%ED%99%94-%EA%B5%AC%EC%84%B1)
