@@ -28,6 +28,10 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
+    - name: Copy appspec.yml
+      run: cp appsepc.yml ./deploy
+
+
     - name: Build with Gradle
       uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
       with:
@@ -50,4 +54,8 @@ jobs:
       
     - name: Upload to S3
       run: aws s3 cp --region ap-northeast-2 --acl private ./springboot-mini-project-jar.zip s3://springboot-github-action-build/
+
+    - name: CodeDeploy
+      run: aws deploy create-deployment --application-name springboot-mini-project --deployment-group-name springboot-mini-project-group --s3-location bucket=springboot-github-action-build,key=springboot-mini-project-jar.zip,bundleType=zip
+
       
