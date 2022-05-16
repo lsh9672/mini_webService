@@ -43,9 +43,9 @@ jobs:
       
     - name: Deploy
       uses: aws-actions/configure-aws-credentials@v1
-      with: 
-        aws-access-key-id: ${{ secret.AWS_ACCESS_KEY }}
-        aws-secret-access-key: ${{ secret.AWS_SECRET_KEY }}
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
         aws-region: ap-northeast-2
       
     - name: Upload to S3
