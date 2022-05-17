@@ -7,8 +7,12 @@ jar{
 	enabled=false
 }
 
+def getDate() {
+	new Date().format('yyyyMMddHHmmss')
+}
+
 group = 'miniProject'
-version = '1.0.1-SNAPSHOT-'+new Date().format("yyyyMMddHHmmss")
+version = '1.0.1-SNAPSHOT-' + getDate()
 sourceCompatibility = '11'
 
 configurations {
