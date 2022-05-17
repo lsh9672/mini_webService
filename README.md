@@ -150,3 +150,13 @@
 - 구축후에 자동 빌드, 배포가 되는지 확인함.
 
 - 참고한 블로그 : [github action 적용](https://velog.io/@tigger/%EB%B0%B0%ED%8F%AC-%EC%9E%90%EB%8F%99%ED%99%94-%EA%B5%AC%EC%84%B1)
+
+### (12일차)
+
+- 10장 끝
+
+- nginx의 리버스 프록시 기능을 이용해서 무중단 배포 구성완료
+
+- health check를 위한 컨트롤러를 만들고 테스트 코드 작성
+
+- 작성한 코드 및 스크립트 `commit` : [8296681](https://github.com/lsh9672/mini_webService/commit/8296681819466a48893584eabb30af5882a794ff)
